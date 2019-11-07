@@ -13,7 +13,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class Topic_02_Locator_In_Selenium_Exercise {
+public class Topic_05_Locator_In_Selenium_Exercise {
 	WebDriver driver;
 	String validEmail = "automation_13@gmail.com";
 	String validPass = "123123";
