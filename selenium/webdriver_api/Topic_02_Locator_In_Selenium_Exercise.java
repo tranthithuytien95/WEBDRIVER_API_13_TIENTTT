@@ -92,7 +92,6 @@ public class Topic_02_Locator_In_Selenium_Exercise {
 		Assert.assertTrue(driver.findElement(By.xpath("//strong[text() = 'Hello, " + fristname + " "+ lastname + "!']")).isDisplayed());
 		Assert.assertTrue(driver.findElement(By.xpath("//div[@class = 'box-content']/p[contains(text(),'" + fristname + " "+ lastname + "')]")).isDisplayed());
 		Assert.assertTrue(driver.findElement(By.xpath("//div[@class = 'box-content']/p[contains(.,'" + validEmail + "')]")).isDisplayed());
-		
 	}
 	
 	@AfterClass
