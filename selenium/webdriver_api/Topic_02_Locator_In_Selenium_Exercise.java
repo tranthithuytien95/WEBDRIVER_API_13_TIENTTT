@@ -2,6 +2,7 @@ package webdriver_api;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -13,12 +14,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class Topic_05_Locator_In_Selenium_Exercise {
+public class Topic_02_Locator_In_Selenium_Exercise {
 	WebDriver driver;
-	String validEmail = "automation_13@gmail.com";
-	String validPass = "123123";
 	String fristname = "Automation";
 	String lastname = "Testing";
+	String validEmail = "automation" + randomNumber() + "@gmail.com";
+	String ValidPassword = "123123";
 
 
 	@BeforeClass
@@ -79,14 +80,38 @@ public class Topic_05_Locator_In_Selenium_Exercise {
 	}
 
 	@Test
-	public void TC_05_LoginWithEmailAndPasswordValid() {
-		driver.findElement(By.xpath("//input[@id='email']")).sendKeys("automation_13@gmail.com");
-		driver.findElement(By.xpath("//input[@id='pass']")).sendKeys("123123");
+	public void TC_05_CreateNewAccount() {
+		
+		driver.findElement(By.xpath("//span[text() = 'Create an Account']")).click();
+		
+		System.out.println("Random email = " + validEmail);
+
+		driver.findElement(By.xpath("//input[@id='firstname']")).sendKeys(fristname);
+		driver.findElement(By.xpath("//input[@id='lastname']")).sendKeys(lastname);
+		driver.findElement(By.xpath("//input[@id='email_address']")).sendKeys(validEmail);
+		driver.findElement(By.xpath("//input[@id='password']")).sendKeys(ValidPassword);
+		driver.findElement(By.xpath("//input[@id='confirmation']")).sendKeys(ValidPassword);
+		driver.findElement(By.xpath("//button[@title='Register']")).click();
+		
+		Assert.assertTrue(driver.findElement(By.xpath("//li[@class = 'success-msg']//span[text() = 'Thank you for registering with Main Website Store.']")).isDisplayed());
+		Assert.assertEquals(driver.findElement(By.xpath("//h1")).getText(), "MY DASHBOARD");
+		Assert.assertTrue(driver.findElement(By.xpath("//strong[text() = 'Hello, " + fristname + " "+ lastname + "!']")).isDisplayed());
+		Assert.assertTrue(driver.findElement(By.xpath("//div[@class = 'box-content']/p[contains(text(),'" + fristname + " "+ lastname + "')]")).isDisplayed());
+		Assert.assertTrue(driver.findElement(By.xpath("//div[@class = 'box-content']/p[contains(.,'" + validEmail + "')]")).isDisplayed());
+		
+		driver.findElement(By.xpath("//div[@class = 'account-cart-wrapper']//span[text() = 'Account']")).click();
+		driver.findElement(By.xpath("//a[@title='Log Out']")).click();
+	}
+	
+	@Test
+	public void TC_06_LoginWithEmailAndPasswordValid() {
+		driver.findElement(By.xpath("//input[@id='email']")).sendKeys(validEmail);
+		driver.findElement(By.xpath("//input[@id='pass']")).sendKeys(ValidPassword);
 		driver.findElement(By.xpath("//button[@id='send2']")).click();
 		
 		//CACH 1: 
-		String MyDashboard = driver.findElement(By.xpath("//h1")).getText();
-		Assert.assertEquals(MyDashboard, "MY DASHBOARD");
+		Assert.assertEquals(driver.findElement(By.xpath("//h1")).getText(), "MY DASHBOARD");
+
 		
 		//CACH 2:
 		Assert.assertTrue(driver.findElement(By.xpath("//strong[text() = 'Hello, " + fristname + " "+ lastname + "!']")).isDisplayed());
@@ -98,5 +123,11 @@ public class Topic_05_Locator_In_Selenium_Exercise {
 	public void afterClass() {
 		driver.quit();
 	}
-
+	public int randomNumber()
+	{
+		Random rand = new Random();
+		int n = rand.nextInt(10000);
+		return n;
+		
+	}
 }
