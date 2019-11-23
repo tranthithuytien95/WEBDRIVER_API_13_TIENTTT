@@ -1,7 +1,5 @@
 package webdriver_api;
 
-import static org.junit.Assert.assertTrue;
-
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
