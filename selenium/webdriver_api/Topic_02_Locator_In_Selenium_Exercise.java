@@ -33,7 +33,7 @@ public class Topic_02_Locator_In_Selenium_Exercise {
 		driver.findElement(By.xpath("//div[@class = 'footer']//*[@title='My Account']")).click();
 	}
 	
-	@Test
+	//@Test
 	public void TC_01_LoginwithEmailandPasswordEmpty() {
 		driver.findElement(By.xpath("//input[@id='email']")).sendKeys("");
 		driver.findElement(By.xpath("//input[@id='pass']")).sendKeys("");
@@ -47,7 +47,7 @@ public class Topic_02_Locator_In_Selenium_Exercise {
 		
 	}
 
-	@Test
+	//@Test
 	public void TC_02_LoginWithEmailInvalid() {
 		driver.findElement(By.xpath("//input[@id='email']")).sendKeys("1234@132.342");
 		driver.findElement(By.xpath("//input[@id='pass']")).sendKeys("");
@@ -57,7 +57,7 @@ public class Topic_02_Locator_In_Selenium_Exercise {
 		Assert.assertEquals(EmailErrorMsg, "Please enter a valid email address. For example johndoe@domain.com.");
 	}
 
-	@Test
+	//@Test
 	public void TC_03_LoginWithPasswordLess6Characters() {
 		driver.findElement(By.xpath("//input[@id='email']")).sendKeys("automation@gmail.com");
 		driver.findElement(By.xpath("//input[@id='pass']")).sendKeys("123");
@@ -67,7 +67,7 @@ public class Topic_02_Locator_In_Selenium_Exercise {
 		Assert.assertEquals(EmailErrorMsg, "Please enter 6 or more characters without leading or trailing spaces.");
 	}
 	
-	@Test
+	//@Test
 	public void TC_04_LoginWithPasswordIncorrect() {
 		driver.findElement(By.xpath("//input[@id='email']")).sendKeys("automation@gmail.com");
 		driver.findElement(By.xpath("//input[@id='pass']")).sendKeys("123456");
@@ -77,7 +77,7 @@ public class Topic_02_Locator_In_Selenium_Exercise {
 		Assert.assertEquals(EmailErrorMsg, "Invalid login or password.");
 	}
 
-	@Test
+	//@Test
 	public void TC_05_CreateNewAccount() {
 		
 		driver.findElement(By.xpath("//span[text() = 'Create an Account']")).click();
@@ -102,10 +102,13 @@ public class Topic_02_Locator_In_Selenium_Exercise {
 	}
 	
 	@Test
-	public void TC_06_LoginWithEmailAndPasswordValid() {
+	public void TC_06_LoginWithEmailAndPasswordValid() throws InterruptedException {
 		driver.findElement(By.xpath("//input[@id='email']")).sendKeys(validEmail);
+		Thread.sleep(3000);
 		driver.findElement(By.xpath("//input[@id='pass']")).sendKeys(ValidPassword);
+		Thread.sleep(3000);
 		driver.findElement(By.xpath("//button[@id='send2']")).click();
+		Thread.sleep(5000);
 		
 		//CACH 1: 
 		Assert.assertEquals(driver.findElement(By.xpath("//h1")).getText(), "MY DASHBOARD");
