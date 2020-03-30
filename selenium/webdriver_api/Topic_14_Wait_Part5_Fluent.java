@@ -1,3 +1,4 @@
+  
 package webdriver_api;
 
 import java.util.Date;
@@ -60,7 +61,7 @@ public class Topic_14_Wait_Part5_Fluent {
 	WebElement countdount = driver.findElement(By.xpath("//div[@id='javascript_countdown_time']"));
 	fluentElement = new FluentWait<WebElement>(countdount);
 	
-	fluentElement.withTimeout(15, TimeUnit.SECONDS);
+	fluentElement.withTimeout(15,TimeUnit.SECONDS);
 	
 	//Tan so moi 1s check 1 lan
 	fluentElement.pollingEvery(1,TimeUnit.SECONDS);
