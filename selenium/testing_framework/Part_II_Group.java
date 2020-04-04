@@ -15,6 +15,7 @@ public class Part_II_Group {
 	  System.out.println("beforeClass");
 
 	  driver = new FirefoxDriver();
+	  
 	  Assert.assertTrue(false);
   }
 	
@@ -52,5 +53,5 @@ public class Part_II_Group {
   public void afterClass() {
 	  System.out.println("afterClass");
 	  driver.quit();
-  }	
+  }
 }
