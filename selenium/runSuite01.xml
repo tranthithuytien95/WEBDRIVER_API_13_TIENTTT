@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Selenium Driver API" parallel="false">
+
+  <test name="TestNG Framework">
+ 
+    <classes>
+    	<class name="testing_framework.Part_I_Annotations"/>
+    </classes> 
+    
+  </test> 
+</suite> 

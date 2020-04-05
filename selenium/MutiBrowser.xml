@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Live GuRu" parallel="false">
+<parameter name = "url" value = "http://live.demoguru99.com/index.php/customer/account/login/" />
+
+<!-- chay 1 luc nhieu browser -->
+<!-- <suite name="Live GuRu" parallel="tests" thread-count= "3" > -->
+
+  <test name="Run testcase on Firefox">   
+  <parameter name = "browser" value = "firefox" />
+    <classes>
+    	<class name="testing_framework.Part_VI_Parameter_MutiBrowser"/>
+    </classes>   
+  </test> 
+  
+  <test name="Run testcase on Chrome">   
+  <parameter name = "browser" value = "chrome" />
+    <classes>
+    	<class name="testing_framework.Part_VI_Parameter_MutiBrowser"/>
+    </classes>   
+  </test> 
+  
+  <test name="Run testcase on Chrome Headless">   
+  <parameter name = "browser" value = "chrome_headless" />
+ 	<classes>
+    	<class name="testing_framework.Part_VI_Parameter_MutiBrowser"/>
+    </classes>   
+  </test> 
+</suite> 

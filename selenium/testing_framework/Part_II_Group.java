@@ -1,8 +1,8 @@
 package testing_framework;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.Assert;
+//import org.openqa.selenium.firefox.FirefoxDriver;
+//import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -14,9 +14,9 @@ public class Part_II_Group {
   public void beforeClass() {
 	  System.out.println("beforeClass");
 
-	  driver = new FirefoxDriver();
+	  //driver = new FirefoxDriver();
 	  
-	  Assert.assertTrue(false);
+	  //Assert.assertTrue(false);
   }
 	
   @Test(groups = "user")
@@ -49,9 +49,10 @@ public class Part_II_Group {
 	  System.out.println("Run TC_06");
   }
   
+  //@AfterClass(alwaysRun = true) -> close browser when TC fail
   @AfterClass(alwaysRun = true)
   public void afterClass() {
 	  System.out.println("afterClass");
-	  driver.quit();
+	  //driver.quit();
   }
 }

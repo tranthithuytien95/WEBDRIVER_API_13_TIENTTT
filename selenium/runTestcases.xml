@@ -2,17 +2,22 @@
 <suite name="Selenium Driver API" parallel="false">
 
   <test name="TestNG Framework">
-  	<groups>
+    <groups>
 	  	<run>
-	  	<include name="shop"/>
+	  		<include name="shop"/>
+	  		<!-- <exclude name="shop"/> -->
 	  	</run>
   	</groups>
   
-  
-  
     <classes>
-      <class name="testing_framework.Part_II_Group"/>
+    	<class name="testing_framework.Part_II_Group"/>
+      	<class name="testing_framework.Part_IV_Asserttions"/>
       
-    </classes>
+    </classes> 
+    
+<!--     <packages>
+    	<package name="testing_framework"/>
+    </packages> -->
+    
   </test> 
 </suite> 

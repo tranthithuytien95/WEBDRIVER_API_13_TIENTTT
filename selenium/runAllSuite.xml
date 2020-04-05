@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Selenium Driver API" >
+
+  
+ 
+    <suite-files>
+    	<suite-file path="runSuite01.xml"/>
+    	<suite-file path="runSuite02.xml"/>
+    </suite-files> 
+    
+  
+</suite> 
